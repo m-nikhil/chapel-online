@@ -1,43 +1,23 @@
 {
-  "name": "online-chapel",
-  "version": "1.0.0",
-  "description": "Online compiler for Chapel programming language",
-  "main": "index.js",
-  "author": "Nikhil",
-  "license": "MIT",
-  "scripts": {
-    "install": "sh brace-change/brace-change.sh",
-    "build": "webpack",
-    "start": "webpack-dev-server --content-base src --inline --hot"
-  },
+  "name": "chapel-online",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "axios": "^0.16.2",
+    "antd": "^2.10.4",
+    "brace": "^0.10.0",
+    "prettier": "^1.4.4",
     "react": "^15.5.4",
     "react-ace": "^5.0.1",
-    "react-dom": "^15.5.4",
-    "react-redux": "^5.0.5",
-    "react-splitter-layout": "^0.2.1",
-    "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0",
-    "semantic-ui-css": "^2.2.10",
-    "semantic-ui-react": "^0.68.5",
-    "webpack": "^3.0.0-rc.1"
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-react-html-attrs": "^2.0.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "css-loader": "^0.28.4",
-    "file-loader": "^0.11.2",
-    "style-loader": "^0.18.2",
-    "url-loader": "^0.5.8",
-    "webpack-dev-server": "^2.4.5",
-    "webpack-shell-plugin": "^0.5.0"
+    "react-scripts": "1.0.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "clean": "find src/ -name '*.js' | xargs node_modules/.bin/prettier --write"
   }
 }
