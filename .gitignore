@@ -1,0 +1,8 @@
+#temp files
+*.swap
+*.save
+
+#dependencies
+node_modules
+bower_components
+
