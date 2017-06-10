@@ -1,0 +1,22 @@
+.menu {
+      background: #000 !important ;
+}
+
+.icon {
+  font-size: 20px;
+  padding: 5px;
+}
+
+.top {
+  position: relative;
+  margin-top: 20px;
+  top : 0;
+  background-color: #808080 !important;
+}
+
+.bottom {
+  position: relative;
+  margin-bottom: 20px;
+  bottom: 0;
+  background-color: #808080 !important
+}
