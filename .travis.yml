@@ -1,5 +1,7 @@
 language: node_js
 
+warnings_are_errors: false
+
 node_js:
  - "7"
  - "6"
