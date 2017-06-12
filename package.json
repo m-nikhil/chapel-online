@@ -1,0 +1,14 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "chapel online server",
+  "main": "src/index.js",
+  "author": "Nikhil",
+  "license": "MIT",
+  "dependencies": {
+    "dockerode": "^2.4.3",
+    "express": "^4.15.3",
+    "path": "^0.12.7",
+    "socket.io": "^2.0.3"
+  }
+}
