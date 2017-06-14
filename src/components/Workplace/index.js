@@ -47,4 +47,4 @@ class Workplace extends Component {
   }
 }
 
-export default Workplace;
+export default Workplace
