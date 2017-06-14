@@ -1,19 +1,19 @@
-import React, { Component } from "react"
-import brace from "brace" // eslint-disable-line no-unused-vars
-import AceEditor from "react-ace"
+import React, { Component } from "react";
+import brace from "brace"; // eslint-disable-line no-unused-vars
+import AceEditor from "react-ace";
 
-import "./index.css"
+import "./index.css";
 
-import "brace/mode/javascript"
-import "brace/theme/chaos"
+import "brace/mode/javascript";
+import "brace/theme/chaos";
 
 class Editor extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   componentDiDMount() {
-    this.editor.resize()
+    this.editor.resize();
   }
 
   render() {
@@ -35,4 +35,4 @@ class Editor extends Component {
   }
 }
 
-export default Editor
+export default Editor;

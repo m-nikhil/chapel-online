@@ -1,13 +1,13 @@
-import React, { Component } from "react"
-import { Layout } from "antd"
+import React, { Component } from "react";
+import { Layout } from "antd";
 
-import "./index.css"
+import "./index.css";
 
-const { Sider, Content } = Layout
+const { Sider, Content } = Layout;
 
 class Page extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {
@@ -24,4 +24,4 @@ class Page extends Component {
   }
 }
 
-export default Page
+export default Page;
