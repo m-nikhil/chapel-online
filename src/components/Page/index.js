@@ -6,9 +6,6 @@ import "./index.css";
 const { Sider, Content } = Layout;
 
 class Page extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

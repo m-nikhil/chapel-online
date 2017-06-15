@@ -8,9 +8,6 @@ import "./index.css";
 import { executeCode } from "../../actions/editorActions";
 
 class Toolbar extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   execute() {
     this.props.executeCode();

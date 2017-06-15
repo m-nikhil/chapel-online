@@ -7,9 +7,7 @@ import Editor from "../Editor";
 import "./index.css";
 
 class Workplace extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   render() {
     return (
