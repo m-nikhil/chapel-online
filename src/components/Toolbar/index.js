@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Menu, Icon } from "antd";
+import Menu  from "antd/lib/menu";
+import Icon from "antd/lib/icon"
 
 import "./index.css";
+import 'antd/lib/menu/style/css';
+import 'antd/lib/icon/style/css'; 
 
 import { executeCode } from "../../actions/editorActions";
 

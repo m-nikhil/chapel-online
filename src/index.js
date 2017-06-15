@@ -9,7 +9,6 @@ import WebFont from "webfontloader";
 import App from "./App";
 import store from "./store";
 
-import "antd/dist/antd.css";
 import "./index.css";
 
 WebFont.load({

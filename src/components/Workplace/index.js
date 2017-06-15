@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import SplitPane from "react-split-pane";
-import { Input } from "antd";
+import  Input  from "antd/lib/input"
 
 import Editor from "../Editor";
 
 import "./index.css";
+import 'antd/lib/input/style/css'; 
 
 class Workplace extends Component {
 

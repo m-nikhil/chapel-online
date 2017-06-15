@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Layout } from "antd";
+import Layout  from "antd/lib/layout";
 
 import "./index.css";
+import 'antd/lib/layout/style/css'; 
 
 const { Sider, Content } = Layout;
 
