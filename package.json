@@ -5,10 +5,22 @@
   "main": "src/index.js",
   "author": "Nikhil",
   "license": "MIT",
+  "scripts": {
+    "start": "node scripts/start.js",
+    "buildrun": "node scripts/buildrun.js",
+    "config": "node scripts/config.js"
+  },
   "dependencies": {
     "dockerode": "^2.4.3",
     "express": "^4.15.3",
     "path": "^0.12.7",
     "socket.io": "^2.0.3"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0",
+    "fs": "^0.0.1-security",
+    "get-next-port": "^1.0.1",
+    "nodemon": "^1.11.0",
+    "shelljs": "^0.7.8"
   }
 }

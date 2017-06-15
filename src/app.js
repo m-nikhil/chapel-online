@@ -1,9 +1,19 @@
-'use strict';
+const express = require('express');
+const path = require('path');
+const app = express();
 
-const app = require('./app');
+if(process.env.NODE_ENV == "production") {
 
-const PORT = process.env.PORT || 9000;
+app.use(express.static(path.join(__dirname, '../../build')));
 
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}!`);
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, '../../build', 'index.html'));
 });
+
+}
+
+app.get('/api', function (req, res) {
+  res.send('Hello Chapel');
+});
+
+module.exports = app;
