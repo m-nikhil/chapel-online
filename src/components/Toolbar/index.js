@@ -6,13 +6,13 @@ import Icon from "antd/lib/icon"
 
 import "./index.css";
 import 'antd/lib/menu/style/css';
-import 'antd/lib/icon/style/css'; 
+import 'antd/lib/icon/style/css';
 
 import { executeCode } from "../../actions/editorActions";
 
 class Toolbar extends Component {
 
-  execute() {
+  executeCode() {
     this.props.executeCode();
   }
 
@@ -25,7 +25,7 @@ class Toolbar extends Component {
           <Icon
             type="play-circle-o"
             className="icon"
-            onClick={this.execute.bind(this)}
+            onClick={this.executeCode.bind(this)}
           />
         </Menu.Item>
         <Menu.Divider className="bottom" />
@@ -34,14 +34,6 @@ class Toolbar extends Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  return {
-    executing: state.executing,
-    executed: state.executed,
-    output: state.output,
-    error: state.error
-  };
-}
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -49,4 +41,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
+export default connect( '', mapDispatchToProps)(Toolbar);

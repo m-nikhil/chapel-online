@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import brace from "brace"; // eslint-disable-line no-unused-vars
 import AceEditor from "react-ace";
 
 import "./index.css";
-
 import "brace/mode/javascript";
 import "brace/theme/chaos";
+
+import { updateCode } from "../../actions/inputActions";
 
 class Editor extends Component {
 
@@ -14,11 +17,17 @@ class Editor extends Component {
     this.editor.resize();
   }
 
+  updateCode(value) {
+      this.props.updateCode(value);
+  }
+
   render() {
+
     return (
+
       <AceEditor
         className="editor"
-        value={'writeln("Hello Chapel!");'}
+        value= {this.props.code}
         mode="javascript"
         theme="chaos"
         name="editor"
@@ -28,9 +37,24 @@ class Editor extends Component {
         highlightActiveLine={false}
         showPrintMargin={false}
         editorProps={{ $blockScrolling: Infinity }}
+        onChange={this.updateCode.bind(this)}
       />
+
+
     );
   }
 }
 
-export default Editor;
+function mapStateToProps(state, ownProps) {
+  return {
+    code: state.input.code
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    updateCode: bindActionCreators(updateCode, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Editor);

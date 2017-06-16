@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 
 import editor from "./editorReducer";
+import input from "./inputReducer";
 
 const reducer = combineReducers({
-  editor
+  editor,
+  input
 });
 
 export default reducer;

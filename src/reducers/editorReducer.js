@@ -3,7 +3,7 @@ import * as types from "../actions/actionTypes";
 const initialState = {
   executing: false,
   executed: false,
-  output: null,
+  output: "Output will be displayed here.",
   error: null
 };
 
