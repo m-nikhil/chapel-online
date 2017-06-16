@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
 import registerServiceWorker from "./registerServiceWorker";
 
 import WebFont from "webfontloader";
 
 import App from "./App";
+import store from "./store";
 
-import "antd/dist/antd.css";
 import "./index.css";
 
 WebFont.load({
@@ -16,5 +17,13 @@ WebFont.load({
   }
 });
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const root = document.getElementById("root");
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  root
+);
+
 registerServiceWorker();

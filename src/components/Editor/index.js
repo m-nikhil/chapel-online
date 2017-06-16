@@ -8,9 +8,7 @@ import "brace/mode/javascript";
 import "brace/theme/chaos";
 
 class Editor extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   componentDiDMount() {
     this.editor.resize();

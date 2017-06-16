@@ -1,0 +1,18 @@
+language: node_js
+
+warnings_are_errors: false
+
+node_js:
+ - "7"
+ - "6"
+
+cache:
+ yarn: true
+ directories:
+ - node_modules
+
+install:
+ - yarn install
+
+script:
+  - yarn build
