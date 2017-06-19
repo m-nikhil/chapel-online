@@ -15,6 +15,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
+    "socket.io": "^2.0.3",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
@@ -28,8 +29,9 @@
     "clean": "find src/ -name '*.js' | xargs node_modules/.bin/prettier --write"
   },
   "proxy": {
-    "/api": {
-      "target": "http://localhost:9000/"
+    "/socket": {
+      "target": "wss://localhost:9002/socket",
+      "ws": true
     }
   }
 }

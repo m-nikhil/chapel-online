@@ -13,7 +13,7 @@ import { executeCode } from "../../actions/editorActions";
 class Toolbar extends Component {
 
   executeCode() {
-    this.props.executeCode();
+    this.props.executeCode(this.props.code, this.props.input, this.props.flags);
   }
 
   render() {
@@ -34,6 +34,13 @@ class Toolbar extends Component {
   }
 }
 
+function mapStateToProps(state, ownProps) {
+  return {
+    input: state.input.input,
+    flags: state.input.flags,
+    code: state.input.code
+  };
+}
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -41,4 +48,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect( '', mapDispatchToProps)(Toolbar);
+export default connect( mapStateToProps , mapDispatchToProps)(Toolbar);
