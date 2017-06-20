@@ -11,7 +11,7 @@
     "config": "node scripts/config.js"
   },
   "dependencies": {
-    "dockerode": "^2.4.3",
+    "dockerode": "^2.5.0",
     "express": "^4.15.3",
     "path": "^0.12.7",
     "socket.io": "^2.0.3"
