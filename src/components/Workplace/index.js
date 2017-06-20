@@ -2,22 +2,19 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import SplitPane from "react-split-pane";
-import  Input  from "antd/lib/input"
+import Input from "antd/lib/input";
 
 import Editor from "../Editor";
 
 import "./index.css";
-import 'antd/lib/input/style/css';
+import "antd/lib/input/style/css";
 
 import { updateInput, updateFlags } from "../../actions/inputActions";
 
-
 class Workplace extends Component {
-
   updateInput(event) {
     this.props.updateInput(event.target.value);
   }
-
 
   render() {
     return (
@@ -40,6 +37,7 @@ class Workplace extends Component {
               autosize={false}
               disabled={true}
               className="output"
+              value={this.props.output}
               defaultValue={this.props.output}
             />
             <Input
@@ -61,7 +59,7 @@ function mapStateToProps(state, ownProps) {
   return {
     input: state.input.input,
     flags: state.input.flags,
-    output: state.editor.output
+    output: state.output.output
   };
 }
 

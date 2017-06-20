@@ -11,23 +11,19 @@ import "brace/theme/chaos";
 import { updateCode } from "../../actions/inputActions";
 
 class Editor extends Component {
-
-
   componentDiDMount() {
     this.editor.resize();
   }
 
   updateCode(value) {
-      this.props.updateCode(value);
+    this.props.updateCode(value);
   }
 
   render() {
-
     return (
-
       <AceEditor
         className="editor"
-        value= {this.props.code}
+        value={this.props.code}
         mode="javascript"
         theme="chaos"
         name="editor"
@@ -39,8 +35,6 @@ class Editor extends Component {
         editorProps={{ $blockScrolling: Infinity }}
         onChange={this.updateCode.bind(this)}
       />
-
-
     );
   }
 }

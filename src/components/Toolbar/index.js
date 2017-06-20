@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import Menu  from "antd/lib/menu";
-import Icon from "antd/lib/icon"
+import Menu from "antd/lib/menu";
+import Icon from "antd/lib/icon";
 
 import "./index.css";
-import 'antd/lib/menu/style/css';
-import 'antd/lib/icon/style/css';
+import "antd/lib/menu/style/css";
+import "antd/lib/icon/style/css";
 
 import { executeCode } from "../../actions/editorActions";
 
 class Toolbar extends Component {
-
   executeCode() {
     this.props.executeCode(this.props.code, this.props.input, this.props.flags);
   }
@@ -48,4 +47,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect( mapStateToProps , mapDispatchToProps)(Toolbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
