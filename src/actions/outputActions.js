@@ -14,19 +14,14 @@ export function executionError(error) {
   };
 }
 
-export function clearOutput(data) {
+export function clearOutput() {
   return {
     type: types.CLEAR_OUTPUT
   };
 }
 
-export function waiting(data) {
-  return {
-    type: types.WAITING
-  };
-}
 
-export function compiling(data) {
+export function compiling() {
   return {
     type: types.COMPILING
   };

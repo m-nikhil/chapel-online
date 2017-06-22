@@ -21,11 +21,9 @@ export default function input(state = initialState, action) {
     case types.CLEAR_OUTPUT: {
       return { ...state, output: " " };
     }
-    case types.WAITING: {
-      return { ...state, output: "Waiting..." };
-    }
+
     case types.COMPILING: {
-      return { ...state, output: "Compiling..." };
+      return { ...state, output: "Compiling...\n" };
     }
     default:
       return state;

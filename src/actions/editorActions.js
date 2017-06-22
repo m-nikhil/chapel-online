@@ -7,7 +7,7 @@ export function executeCode(code, input, flags) {
     let socket = io({ reconnectionAttempts: 5 });
 
     socket.on("connect", function() {
-      dispatch(outputActions.waiting());
+      dispatch(outputActions.compiling());
     });
 
     socket.on("reconnect_failed", function() {
@@ -20,19 +20,11 @@ export function executeCode(code, input, flags) {
 
     socket.emit("run", { code: code, stdin: input }); //flags need to added
 
-    let compile = 0;
-    let clear = 0;
+
     socket.on("data", function(data) {
-      if (!compile) {
-        dispatch(outputActions.compiling());
-        compile = 1;
-      } else {
-        if (!clear) {
-          dispatch(outputActions.clearOutput());
-          clear = 1;
-        }
+
         dispatch(outputActions.updateOutput(data));
-      }
+
     });
 
     socket.on("end", function() {
