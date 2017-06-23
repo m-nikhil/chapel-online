@@ -7,7 +7,9 @@ function docker (socket, code, stdin ) {  // add flags
   let script = ' echo $0 > service.chpl;\
 		             echo $1 >input.txt;\
                  chpl -o service service.chpl;\
-		             ./service -nl 2 < input.txt;'       // nl must take value from a drop list, provided in the UI (future)
+		             timeout 30s ./service -nl 2 < input.txt;'
+              // timeout give a signal
+              // nl must take value from a drop list, provided in the UI (future)
 
  //needs to be replaced with a UUID permalink
  var containerID = (Math.random() * 7983 +1).toString();
@@ -22,8 +24,9 @@ function docker (socket, code, stdin ) {  // add flags
     'Cmd': ['sh','-c',script,code,stdin],
     'OpenStdin': false,
     'StdinOnce': false,
-    'AutoRemove': true
-    //add memory and cpu limits
+    'AutoRemove': true,
+    'Memory': 768000000 //256*3 MB
+  
   }
 
   let ATTACH_OPTIONS = {
