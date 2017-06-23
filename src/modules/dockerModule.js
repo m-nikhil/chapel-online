@@ -12,7 +12,9 @@ function docker (socket, code, stdin ) {  // add flags
               // nl must take value from a drop list, provided in the UI (future)
 
  //needs to be replaced with a UUID permalink
- var containerID = (Math.random() * 7983 +1).toString();
+
+ const uuidv4 = require('uuid/v4');
+ let containerID = uuidv4();
 
   let OPTIONS = {
     'name': containerID,
@@ -26,7 +28,7 @@ function docker (socket, code, stdin ) {  // add flags
     'StdinOnce': false,
     'AutoRemove': true,
     'Memory': 768000000 //256*3 MB
-  
+
   }
 
   let ATTACH_OPTIONS = {
