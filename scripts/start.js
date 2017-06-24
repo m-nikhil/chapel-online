@@ -3,18 +3,19 @@
 //set env
 process.env.NODE_ENV = 'development';
 
-const env_path = "./config/.env.development"
+const env_path = "./config/env.development"
 require('dotenv').config({path: env_path});
 
-const CHAPEL_HOST = process.env.CHAPEL_HOST || '0.0.0.0';
-const  CHAPEL_PORT = process.env.CHAPEL_PORT || 9000;
+process.env.CHAPEL_HOST  = process.env.CHAPEL_HOST || '0.0.0.0';
+process.env.CHAPEL_PORT = process.env.CHAPEL_PORT || 9000;
+process.env.CHAPEL_DB = process.env.CHAPEL_DB||'mongodb://localhost/chapel_test';
 
 const shell = require('shelljs');
 const getNextPort = require('get-next-port');
 
-getNextPort( CHAPEL_PORT)
+getNextPort()
   .then(port => {
-    shell.exec(`export  CHAPEL_PORT=${port} && yarn nodemon`);
+    shell.exec(`yarn nodemon`);
     console.log(port);
   })
   .catch( err => {

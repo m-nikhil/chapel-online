@@ -1,6 +1,6 @@
-var express = require('express');
+const express = require('express');
 const path = require('path');
-var router = express.Router();
+const router = express.Router();
 
 
 router.use(express.static(path.join(__dirname, '../../../chapel-online/build')));

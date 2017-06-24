@@ -1,5 +1,5 @@
 
-function docker (socket, code, stdin ) {  // add flags
+function docker (socket, code, stdin, link ) {  // add flags
 
   const Docker = require('dockerode');
   const docker = new Docker();
@@ -59,6 +59,8 @@ function docker (socket, code, stdin ) {  // add flags
     container.start();
 
   });
+
+  socket.emit("getlink",link);
 
 }
 
