@@ -12,7 +12,7 @@ import { executeCode } from "../../actions/editorActions";
 
 class Toolbar extends Component {
   executeCode() {
-    this.props.executeCode(this.props.code, this.props.input, this.props.flags);
+    this.props.executeCode(this.props.code, this.props.input, this.props.flags,this.props.link);
   }
 
   render() {
@@ -37,7 +37,8 @@ function mapStateToProps(state, ownProps) {
   return {
     input: state.input.input,
     flags: state.input.flags,
-    code: state.input.code
+    code: state.input.code,
+    link: state.permalink.link
   };
 }
 

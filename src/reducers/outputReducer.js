@@ -15,7 +15,7 @@ export default function input(state = initialState, action) {
       let output = state.output;
       return { ...state, output: output + ab2str(action.payload) };
     }
-    case types.EXECUTION_ERROR: {
+    case types.EXECUTION_ERROR: {      //display as toast
       return { ...state, error: action.payload, output: "" };
     }
     case types.CLEAR_OUTPUT: {

@@ -2,6 +2,8 @@ export const UPDATE_CODE = "UPDATE_CODE";
 export const UPDATE_INPUT = "UPDATE_INPUT";
 export const UPDATE_FLAGS = "UPDATE_FLAGS";
 
+export const LOAD_PERMALINK = "LOAD_PERMALINK";
+
 export const UPDATE_OUTPUT = "UPDATE_OUTPUT";
 export const EXECUTION_ERROR = "EXECUTION_ERROR";
 export const CLEAR_OUTPUT = "CLEAR_OUTPUT";

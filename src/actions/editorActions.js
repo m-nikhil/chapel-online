@@ -2,7 +2,10 @@ import * as outputActions from "./outputActions";
 
 import io from "socket.io-client";
 
-export function executeCode(code, input, flags) {
+import createHistory from 'history/createBrowserHistory'
+const history = createHistory()
+
+export function executeCode(code, input, flags, link) {
   return function(dispatch) {
     let socket = io({ reconnectionAttempts: 5 });
 
@@ -18,8 +21,11 @@ export function executeCode(code, input, flags) {
       //display docker error
     });
 
-    socket.emit("run", { code: code, stdin: input }); //flags need to added
+    socket.emit("run", { code: code, stdin: input, link:link }); //flags need to added
 
+    socket.on("getlink", function(data){      // redirect to link
+        history.push(data);
+    });
 
     socket.on("data", function(data) {
 
