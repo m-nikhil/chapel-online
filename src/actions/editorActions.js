@@ -1,4 +1,5 @@
 import * as outputActions from "./outputActions";
+import * as types from "./actionTypes";
 
 import io from "socket.io-client";
 
@@ -24,6 +25,7 @@ export function executeCode(code, input, flags, link) {
     socket.emit("run", { code: code, stdin: input, link:link }); //flags need to added
 
     socket.on("getlink", function(data){      // redirect to link
+        dispatch({type: types.LOAD_PERMALINK, payload: data});
         history.push(data);
     });
 
