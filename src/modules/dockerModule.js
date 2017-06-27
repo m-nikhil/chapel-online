@@ -22,7 +22,7 @@ function docker (socket, code, stdin, link ) {  // add flags
     'AttachStdin': true,
     'AttachStdout': true,
     'AttachStderr': true,
-    'Tty': true,
+    'Tty': false,
     'Cmd': ['sh','-c',script,code,stdin],
     'OpenStdin': false,
     'StdinOnce': false,
@@ -37,6 +37,14 @@ function docker (socket, code, stdin, link ) {  // add flags
     'stderr':true
   }
 
+const MemoryStream = require('memorystream');
+let stdout = new MemoryStream();
+let stderr = new MemoryStream();
+
+const byline = require('byline')
+
+
+
   docker.createContainer(OPTIONS, (err,container) => {
 
     if(err) {
@@ -48,15 +56,35 @@ function docker (socket, code, stdin, link ) {  // add flags
       if(err) {
         //err
       }
-      stream.on('data', (chunk) => {
-        socket.emit("data",chunk);
+
+
+
+      byline(stdout).on('data', (line) => {
+        if (line.toString().trim() !== "") {
+          socket.emit("data",(line.toString().replace("\n","<br />")) + "<br />");
+        }
       });
-      stream.on('end', () => {
+
+      stdout.on('end', () => {
         socket.emit("end",' ')
       });
+
+      byline(stderr).on('data', (line) => {
+        if (line.toString().trim() !== "") {
+          socket.emit("errordata","<warning />"+(line.toString().replace("\n","<br />")) );
+        }
+      });
+
+      stderr.on('end', () => {
+        socket.emit("end",' ')
+      });
+
+        container.modem.demuxStream(stream, stdout, stderr );
+
+
     });
 
-    container.start();
+     container.start();
 
   });
 
