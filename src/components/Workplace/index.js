@@ -32,14 +32,21 @@ class Workplace extends Component {
             maxSize={450}
             defaultSize={300}
           >
-            <Input
-              type="textarea"
-              autosize={false}
-              disabled={true}
-              className="output"
-              value={this.props.output}
-              defaultValue={this.props.output}
-            />
+            <div className="output" >
+            {this.props.output.split("<br />").map((item, key) => {
+                return <span key={key}>{item}<br/></span>
+            })}
+
+            {this.props.error.split("<warning />").map((item, key) => {
+                return <span key={key}><font color="red">{
+                    item.split("<br />").map((item2, key) => {
+                        return <span key={key}>{item2}<br/></span>
+                    })
+                }</font></span>
+            })}
+
+            </div>
+
             <Input
               type="textarea"
               autosize={false}
@@ -55,11 +62,12 @@ class Workplace extends Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+ function mapStateToProps(state, ownProps) {
   return {
     input: state.input.input,
     flags: state.input.flags,
-    output: state.output.output
+    output: state.output.output,
+    error: state.output.error
   };
 }
 

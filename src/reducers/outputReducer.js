@@ -2,28 +2,26 @@ import * as types from "../actions/actionTypes";
 
 const initialState = {
   output: "Output will be displayed here.",
-  error: null
+  error: " "
 };
 
-function ab2str(buf) {
-  return String.fromCharCode.apply(null, new Uint8Array(buf));
-}
 
 export default function input(state = initialState, action) {
   switch (action.type) {
     case types.UPDATE_OUTPUT: {
       let output = state.output;
-      return { ...state, output: output + ab2str(action.payload) };
+      return { ...state, output: output + action.payload};
     }
-    case types.EXECUTION_ERROR: {      //display as toast
-      return { ...state, error: action.payload, output: "" };
+    case types.EXECUTION_ERROR: {
+      let error = state.error;
+      return { ...state, error: error + action.payload};
     }
     case types.CLEAR_OUTPUT: {
-      return { ...state, output: " " };
+      return { ...state, output: "", error: "" };
     }
 
     case types.COMPILING: {
-      return { ...state, output: "Compiling...\n" };
+      return { ...state, output: "Compiling...\n", error: "" };
     }
     default:
       return state;

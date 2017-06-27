@@ -18,10 +18,6 @@ export function executeCode(code, input, flags, link) {
       console.log("Socket reconnect failed"); // display a toast - conveying the error
     });
 
-    socket.on("error", function(error) {
-      //display docker error
-    });
-
     socket.emit("run", { code: code, stdin: input, link:link }); //flags need to added
 
     socket.on("getlink", function(data){      // redirect to link
@@ -30,9 +26,11 @@ export function executeCode(code, input, flags, link) {
     });
 
     socket.on("data", function(data) {
-
         dispatch(outputActions.updateOutput(data));
+    });
 
+    socket.on("errordata", function(error) {
+      dispatch(outputActions.executionError(error));
     });
 
     socket.on("end", function() {
