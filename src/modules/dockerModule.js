@@ -60,23 +60,26 @@ const byline = require('byline')
 
 
       byline(stdout).on('data', (line) => {
+
+        stdout.end('end', ( ) => {
+          socket.emit("end"," ");
+        } );
+
         if (line.toString().trim() !== "") {
           socket.emit("data",(line.toString().replace("\n","<br />")) + "<br />");
         }
       });
 
-      stdout.on('end', () => {
-        socket.emit("end",' ')
-      });
 
       byline(stderr).on('data', (line) => {
+
+        stderr.on('end', () => {
+          socket.emit("end"," ");
+        });
+
         if (line.toString().trim() !== "") {
           socket.emit("errordata","<warning />"+(line.toString().replace("\n","<br />")) );
         }
-      });
-
-      stderr.on('end', () => {
-        socket.emit("end",' ')
       });
 
         container.modem.demuxStream(stream, stdout, stderr );

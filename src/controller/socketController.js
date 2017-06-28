@@ -6,8 +6,19 @@ const addpermalink = require('../modules/addpermalinkModule');
 const updatepermalink = require('../modules/updatepermalinkModule');
 
 io.on ("connection", function(socket){
-
         socket.on("run", (data) => {
+
+        /*  console.log(socket.handshake.session.id);
+          if(socket.handshake.session.cookie.userdata == "apple"){
+            console.log("filled");
+            console.log(socket.handshake.session.userdata);
+          }
+          else {
+            socket.handshake.session.cookie.userdata = "apple";
+            socket.handshake.session.save();
+              console.log(socket.handshake.session.cookie.userdata);
+          }
+*/
           if(data.link == null) {
             data.link = addpermalink(data.code,data.stdin);
           } else {

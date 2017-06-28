@@ -20,5 +20,11 @@ if( process.env.CHAPEL_DB === undefined)
  process.exit(1);
 }
 
+if( process.env.CHAPEL_SECRET_KEY=== undefined)
+{
+ console.log("ERROR: CHAPEL_SECRET_KEY missing");
+ process.exit(1);
+}
+
 const shell = require('shelljs');
 shell.exec('node ./src/index.js')
