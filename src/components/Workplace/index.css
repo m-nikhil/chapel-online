@@ -4,6 +4,11 @@
   height: 100%;
 }
 
+.scrollbar {
+  color: white !important;
+  background-color: white !important;
+}
+
 .input {
   width: 100% !important;
   height: 100% !important;

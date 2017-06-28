@@ -15,7 +15,8 @@ export function executeCode(code, input, flags, link) {
     });
 
     socket.on("reconnect_failed", function() {
-      console.log("Socket reconnect failed"); // display a toast - conveying the error
+      console.log("Socket reconnect failed"); 
+      dispatch(outputActions.executed());
     });
 
     socket.emit("run", { code: code, stdin: input, link:link }); //flags need to added
@@ -33,7 +34,8 @@ export function executeCode(code, input, flags, link) {
       dispatch(outputActions.executionError(error));
     });
 
-    socket.on("end", function() {
+    socket.on("end", function(end) {
+      dispatch(outputActions.executed());
       socket.close();
     });
   };

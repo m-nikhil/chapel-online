@@ -9,6 +9,8 @@ import Editor from "../Editor";
 import "./index.css";
 import "antd/lib/input/style/css";
 
+import ScrollArea  from "react-scrollbar";
+
 import { updateInput, updateFlags } from "../../actions/inputActions";
 
 class Workplace extends Component {
@@ -23,7 +25,7 @@ class Workplace extends Component {
           split="vertical"
           minSize={300}
           maxSize={1000}
-          defaultSize={800}
+          defaultSize={700}
         >
           <Editor />
           <SplitPane
@@ -32,7 +34,14 @@ class Workplace extends Component {
             maxSize={450}
             defaultSize={300}
           >
-            <div className="output" >
+          <ScrollArea
+          speed={0.8}
+          contentClassName="content"
+          horizontal={false}
+          className="output"
+          swapWheelAxes={true}
+          >
+            <div >
             {this.props.output.split("<br />").map((item, key) => {
                 return <span key={key}>{item}<br/></span>
             })}
@@ -46,6 +55,7 @@ class Workplace extends Component {
             })}
 
             </div>
+            </ScrollArea>
 
             <Input
               type="textarea"

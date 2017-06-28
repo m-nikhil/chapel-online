@@ -26,3 +26,9 @@ export function compiling() {
     type: types.COMPILING
   };
 }
+
+export function executed() {
+  return {
+    type: types.EXECUTED
+  };
+}

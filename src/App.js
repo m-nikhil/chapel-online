@@ -2,9 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
+import 'react-toastify/dist/ReactToastify.min.css'
+
 import Page from "./components/Page";
 import Toolbar from "./components/Toolbar";
 import Workplace from "./components/Workplace";
+import { ToastContainer } from 'react-toastify';
+
+
 
 import { loadPermalink } from "./actions/permalinkActions";
 
@@ -16,7 +21,12 @@ componentWillMount() {
 
 
  render() {
-    return <Page sider={<Toolbar />} content={<Workplace />} />;
+    return (
+      <div>
+        <ToastContainer position={ "bottom-right"} autoClose={2000}  hideProgressBar={true} className={"notify"}/>
+        <Page sider={<Toolbar />} content={<Workplace />} />
+      </div>
+    );
   }
 }
 
